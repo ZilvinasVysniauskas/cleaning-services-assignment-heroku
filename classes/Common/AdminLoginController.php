@@ -2,11 +2,10 @@
 
 namespace Ninja;
 
-class Authentication
+class AdminLoginController
 {
-    private $usersTable;
-    private $usernameColumn;
-    private $passwordColumn;
+    private $adminLogDetailsTable;
+
     public function __construct(\Ninja\DatabaseTable $usersTable, $usernameColumn, $passwordColumn)
     {
         session_start();
@@ -14,19 +13,18 @@ class Authentication
         $this->usernameColumn = $usernameColumn;
         $this->passwordColumn = $passwordColumn;
     }
-    public function logUser($username, $password, $tableId)
+    public function logAdmin($username, $password, $tableId)
     {
         session_regenerate_id();
-        $_SESSION['username'] = $username;
-        $_SESSION['password'] = $password;
-        $_SESSION['tableId'] = $tableId;
+        $_SESSION['admin'] = 'yes';
     }
     public function logout(){
         session_destroy();
-        header('location: http://localhost:8000/');
+        $link = 'http://'.$_SERVER['HTTP_HOST'];
+        header('location: '. $link);
     }
-    public function isLogged(){
-        if (!isset($_SESSION['username'])){
+    public function isAdmin(){
+        if (!isset($_SESSION['admin'])){
              return false;
         }
         if(count($this->usersTable->findById($_SESSION['username'])) === 0) {

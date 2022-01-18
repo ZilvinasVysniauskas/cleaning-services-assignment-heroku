@@ -3,7 +3,7 @@
 namespace Pomodoro\Controllers;
 require __DIR__ . '/../../../vendor/autoload.php';
 
-use Ninja\Authentication as Au;
+use Ninja\AdminLoginController as Au;
 use ZxcvbnPhp\Zxcvbn;
 
 class loginController

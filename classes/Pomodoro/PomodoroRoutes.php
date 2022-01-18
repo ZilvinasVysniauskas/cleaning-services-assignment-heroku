@@ -1,7 +1,7 @@
 <?php
 namespace Pomodoro;
 use \Ninja\DatabaseTable as Db;
-use Ninja\Authentication as Au;
+use Ninja\AdminLoginController as Au;
 
 use Pomodoro\Controllers\GoalsController;
 use Pomodoro\Controllers\LoginController;
