@@ -44,10 +44,10 @@ if (count($selectedData) > 0){
                     id: '.$recordId.'
                 })
                 if ($("#'.$inputDateId.'").val() === $("#date").val()){
-                    setTimeout(loadDataDate(),100);
+                    setTimeout(loadDataDate(),2000);
                 }
                 else {
-                    setTimeout(loadDataEmail(),100)
+                    setTimeout(loadDataEmail(),2000)
                 }
             })
             $("#'.$saveButtonId.'").click(function (){
@@ -63,10 +63,10 @@ if (count($selectedData) > 0){
                 })
                 //needs better solution, will cause error in some cases;
                 if ($("#'.$inputDateId.'").val() === $("#date").val()){
-                    setTimeout(loadDataDate(),100);
+                    setTimeout(loadDataDate(),2000);
                 }
                 else {
-                    setTimeout(loadDataEmail(),100)
+                    setTimeout(loadDataEmail(),2000)
                 }
             })
             $("#'.$editButtonId.'").click(function (){
