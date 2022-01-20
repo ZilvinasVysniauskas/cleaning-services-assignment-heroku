@@ -47,7 +47,7 @@ if (count($selectedData) > 0){
                     setTimeout(loadDataDate(),2000);
                 }
                 else {
-                    setTimeout(loadDataEmail(),2000)
+                    setTimeout(loadDataEmail(),2000);
                 }
             })
             $("#'.$saveButtonId.'").click(function (){
@@ -66,7 +66,7 @@ if (count($selectedData) > 0){
                     setTimeout(loadDataDate(),2000);
                 }
                 else {
-                    setTimeout(loadDataEmail(),2000)
+                    setTimeout(loadDataEmail(),2000);
                 }
             })
             $("#'.$editButtonId.'").click(function (){
