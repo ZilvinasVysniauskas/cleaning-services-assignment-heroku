@@ -28,6 +28,8 @@ selecting records by date
 selecting records by email
 editing records
 deleting records
+
+records are sorted by time
 ______________________________
 
 Download record:
