@@ -21,10 +21,10 @@ function generateRandomNumber($length = 10) {
 
 $arr = [];
 $x = 0;
-while ($x < 30){
+while ($x < 1000){
     $arr[] = [generateRandomString(rand(4, 10)), generateRandomString(rand(4, 10)) . '@' . generateRandomString(rand(3, 6)) . '.com',
         '+3706' . generateRandomNumber(7), generateRandomString(rand(4, 10)) . " Street " . generateRandomNumber(2) . '-' . generateRandomNumber(3),
-        date('Y-m-d', rand(1641038386,1672487964 )), rand(0, 22) . ':00'];
+        date('Y-m-d', rand(1641038386,1652487964 )), rand(0, 22) . ':00'];
     $x++;
 }
 $file = fopen('./files/records.csv' , 'w');

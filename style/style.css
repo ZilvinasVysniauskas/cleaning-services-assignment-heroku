@@ -57,4 +57,15 @@
   padding-top: 50px;
 }
 
+.btn {
+  padding: 1px;
+  background-color: #0d7a78;
+  transition: 0.3s;
+  color: white;
+}
+.btn:hover {
+  background-color: #34c1c9;
+}
+
+
 /*# sourceMappingURL=style.css.map */

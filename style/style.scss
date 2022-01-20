@@ -58,4 +58,16 @@
 .adminMainPage{
   padding-top: 50px;
 }
+.btn{
+  padding: 1px;
+  background-color: #0d7a78;
+  transition: 0.3s;
+  color: white;
+  &:hover{
+    background-color: #34c1c9
+  }
+}
+.deleteButton{
+  background-color: red;
+}
 
