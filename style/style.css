@@ -66,6 +66,8 @@
 .btn:hover {
   background-color: #34c1c9;
 }
-
+.deleteButton{
+  background-color: red;
+}
 
 /*# sourceMappingURL=style.css.map */
