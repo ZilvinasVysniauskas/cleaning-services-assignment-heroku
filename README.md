@@ -32,8 +32,8 @@ ______________________________
 Download record:
 
 Download all records
-Download all records from date A to Date B
-Download all records from time A to time B
+Download all records from date A to Date B: added proof (date A cannot be greater the date B)
+Download all records from time A to time B added proof (time A cannot be greater the time B)
 Download all records from time A to time B AND  date A to Date B
 ______________________________
 
