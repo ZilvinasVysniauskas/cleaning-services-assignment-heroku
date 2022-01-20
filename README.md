@@ -1,5 +1,6 @@
 Cleaning services booking application with administrator functionality. 
-
+Application is build using MVC method. 
+ 
 Heroku link:
 http://cleaning-services-assignment.herokuapp.com/
 
