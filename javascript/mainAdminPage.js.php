@@ -1,14 +1,17 @@
 function loadDataEmail(){
-    $("#selectedRecords").load('ajax/loadRecordFromDbAjax.php', {
+    setTimeout($("#selectedRecords").load('ajax/loadRecordFromDbAjax.php', {
         column: 'email',
         value: $("#email").val()
-    })
+    }),10000);
+
 }
+
 function loadDataDate(){
-    $("#selectedRecords").load('ajax/loadRecordFromDbAjax.php', {
+    setTimeout($("#selectedRecords").load('ajax/loadRecordFromDbAjax.php', {
         column: 'date',
         value: $("#date").val()
-    })
+    }), 10000);
+
 }
 
 $("#searchByDate").click(function () {
