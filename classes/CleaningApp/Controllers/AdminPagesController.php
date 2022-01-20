@@ -113,7 +113,7 @@ class AdminPagesController
         unset($csvArr[0]);
         foreach ($csvArr as $record){
             $data = ['name' => $record[0], 'email' => $record[1], 'phone_number' => $record[2],
-                'apartment_address' => $record[3], 'date' => $record[4], 'time' => substr($record[5], 0, 1)];
+                'apartment_address' => $record[3], 'date' => $record[4], 'time' => substr($record[5], 0, -3)];
             $this->userReservationTable->insertIntoDb($data);
         }
         return $this->importRecordsDisplay(['import successful']);
