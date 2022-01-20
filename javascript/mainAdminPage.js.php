@@ -1,16 +1,20 @@
 function loadDataEmail(){
-    setTimeout($("#selectedRecords").load('ajax/loadRecordFromDbAjax.php', {
-        column: 'email',
-        value: $("#email").val()
-    }),10000);
+    setTimeout(function (){
+        $("#selectedRecords").load('ajax/loadRecordFromDbAjax.php', {
+            column: 'email',
+            value: $("#email").val()
+        })
+    }, 50)
 
 }
 
 function loadDataDate(){
-    setTimeout($("#selectedRecords").load('ajax/loadRecordFromDbAjax.php', {
-        column: 'date',
-        value: $("#date").val()
-    }), 10000);
+    setTimeout(function (){
+        $("#selectedRecords").load('ajax/loadRecordFromDbAjax.php', {
+            column: 'date',
+            value: $("#date").val()
+        })
+    }, 50)
 
 }
 
