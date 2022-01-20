@@ -1,0 +1,61 @@
+
+.container-fluid {
+  height: 100vh;
+  background-image: url("https://images.pexels.com/photos/48889/cleaning-washing-cleanup-the-ilo-48889.jpeg?cs=srgb&dl=pexels-pixabay-48889.jpg&fm=jpg");
+  background-size: cover;
+  padding: 20vh 0;
+}
+
+.makeReservations {
+  .row{
+    margin: auto;
+    width: 60%;
+    padding: 30px 10%;
+    background-color: rgba(#0d7a78, 0.7);
+    border-radius: 5%;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: wheat;
+    input{
+      padding: 5px;
+      margin: 5px;
+    }
+    select{
+      padding: 5px;
+      margin: 5px;
+    }
+    p{
+      color: red;
+      font-weight: normal;
+      text-transform: capitalize;
+      font-size: 16px;
+    }
+    .success{
+      color: white;
+    }
+  }
+}
+.adminLogged{
+  padding: 10px 0;
+  background-color: black;
+  .container{
+    justify-content: right;
+  }
+  a{
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    text-transform: uppercase;
+    padding: 10px;
+    margin-left: 20px;
+    transition: 0.6s;
+    &:hover{
+      background-color: aqua;
+
+    }
+  }
+}
+.adminMainPage{
+  padding-top: 50px;
+}
+

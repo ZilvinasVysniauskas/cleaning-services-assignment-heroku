@@ -1,5 +1,5 @@
 <?php
-namespace Ninja;
+namespace Common;
 
 
 class DatabaseTable
@@ -14,50 +14,57 @@ class DatabaseTable
         $this->primaryKey = $primaryKey;
     }
     private function query($sql, $parameters = null){
-        echo $sql . '<br>';
         $query = $this->pdo->prepare($sql);
         $query->execute($parameters);
         return $query;
     }
-    public function findById($value = null){
-        if ($value !== null){
-            $sql = 'SELECT * FROM ' . $this->table . ' WHERE ' . $this->primaryKey . ' = :value';
-            $parameters = [
-                'value' => $value
-            ];
-        }else{
-            $sql = "SELECT * FROM "  . $this->table;
-            $parameters = null;
+
+    public function insertIntoDb($data){
+        $sql = 'INSERT INTO '   . $this->table . ' SET ';
+        foreach ($data as $key => $value){
+            $sql .=   $key  .  ' = ' .  "'" .$value . "'" . ', ';
         }
+        $sql = rtrim($sql, ', ');
+        $this->query($sql);
+    }
+    public function findById($value = null){
+        $sql = 'SELECT * FROM ' . $this->table . ' WHERE ' . $this->primaryKey . ' = :value';
+        $parameters = [
+            'value' => $value
+        ];
         $query = $this->query($sql, $parameters);
         return $query->fetchAll();
     }
-    public function selectDataFromDb($condition = null){
+    public function selectDataFromDb($orderBy = null, $ascOrDesc = null,  $condition = null){
         $sql = 'SELECT * FROM ' . $this->table;
         if ($condition !== null){
             $sql .= ' WHERE ';
             foreach ($condition as $key => $value){
-                $sql .= $key . "=" . "'" . $value . "' AND ";
+                if (gettype($value) === 'array'){
+                    $sql .= $key . " BETWEEN " . "'" . $value[0] . "' AND " . "'" . $value[1] . "' AND ";
+                }
+                else{
+                    $sql .= $key . "=" . "'" . $value . "' AND ";
+                }
             }
             $sql = rtrim($sql, 'AND ');
         }
+        if ($orderBy !== null){
+            $sql .= ' ORDER BY ' . $orderBy . ' ' . $ascOrDesc;
+        }
+
         $query = $this->query($sql);
         return $query->fetchAll();
     }
-    public function updateValuesInDb($data, $actionAddOrChange){
+
+    public function updateValuesInDb($data){
         $sql = 'UPDATE ' . $this->table . ' SET ';
-        if ($actionAddOrChange == 'add'){
-            foreach ($data['set'] as $key => $value){
-                $sql .= $key .' = ' . $key . ' + ' . "'" . $value . "'" . ', ';
+        foreach ($data['set'] as $key => $value){
+            if ($value === 'null'){
+                $sql .= $key .' = ' .  $value  . ', ';
             }
-        }else{
-            foreach ($data['set'] as $key => $value){
-                if ($value === 'null'){
-                    $sql .= $key .' = ' .  $value  . ', ';
-                }
-                else {
-                    $sql .= $key .' = ' .  "'" . $value . "'" . ', ';
-                }
+            else {
+                $sql .= $key .' = ' .  "'" . $value . "'" . ', ';
             }
         }
         $sql = rtrim($sql, ', ');
@@ -70,22 +77,14 @@ class DatabaseTable
         }
         $this->query($sql);
     }
-    public function insertIntoDb($data){
-        $sql = 'INSERT INTO '   . $this->table . ' SET ';
-        foreach ($data as $key => $value){
-            $sql .=   $key  .  ' = ' .  "'" .$value . "'" . ', ';
-        }
-        $sql = rtrim($sql, ', ');
-        $this->query($sql);
 
-    }
-    public function deleteFromDb($condition){
-        $sql = 'DELETE FROM ' . $this->table . ' WHERE ';
-        foreach ($condition as $key => $value){
-            $sql .= $key . ' = ' . "'" . $value . "'" . ' AND ';
-        }
-        $sql = rtrim($sql, ' AND ');
-        $this->query($sql);
+
+    public function deleteFromDb($value){
+        $sql = 'DELETE FROM ' . $this->table . ' WHERE ' . $this->primaryKey . ' = :value';
+        $parameters = [
+            'value' => $value
+        ];
+        $this->query($sql, $parameters);
     }
 
 

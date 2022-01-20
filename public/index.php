@@ -3,7 +3,7 @@ try {
     include __DIR__ . '/../includes/autoload.php';
 
     $route = ltrim(strtok($_SERVER['REQUEST_URI'], '?'), '/');
-    $entryPoint = new \Ninja\EntryPoint($route, $_SERVER['REQUEST_METHOD'], new \Pomodoro\PomodoroRoutes());
+    $entryPoint = new \Common\EntryPoint($route, $_SERVER['REQUEST_METHOD'], new \CleaningApp\CleaningRoutes());
     $entryPoint->run();
 }
 catch (PDOException $e) {
@@ -11,5 +11,5 @@ catch (PDOException $e) {
 
     $output = 'Database error: ' . $e->getMessage() . ' in ' .
         $e->getFile() . ':' . $e->getLine();
-    include  __DIR__ . '/../templates/layout.html.php';
+    include __DIR__ . '/../templates/layout.html.php';
 }

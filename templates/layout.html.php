@@ -11,32 +11,20 @@
     <title><?=$title?></title>
 </head>
 
-<?php
-if ($title !== 'pomodoro'){
-    echo '<body>';
-}else{
-    echo '<body  onload="template()">';
-}
-?>
-
-<div><?=$logged ?? null ?></div>
+    <div><?= $adminLogged ?? null ?></div>
+    <div><?=$output?></div>
 
 
-<div><?=$output?></div>
 
 
 <style>
     <?php
-        include __DIR__ . "/../style/style.css.php";
+        include __DIR__ . "/../style/style.css";
     ?>
 </style>
 
-
-
 <script>
-    <?php
-    include __DIR__ . "/../javascript/login-register.js.php";
-    ?>
+
 </script>
 <script src="https://kit.fontawesome.com/70e16b2dcf.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

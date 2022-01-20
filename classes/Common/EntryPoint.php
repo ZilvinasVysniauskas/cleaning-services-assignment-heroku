@@ -1,5 +1,5 @@
 <?php
-namespace Ninja;
+namespace Common;
 
 class EntryPoint
 {
@@ -7,7 +7,7 @@ class EntryPoint
     private $method;
     private $routes;
 
-    public function __construct($route, $method, \Pomodoro\PomodoroRoutes $routes) {
+    public function __construct($route, $method, \CleaningApp\CleaningRoutes $routes) {
         $this->route = $route;
         $this->routes = $routes;
         $this->method = $method;
@@ -44,7 +44,6 @@ class EntryPoint
             }
         }
         include __DIR__ . '/../../templates/layout.html.php';
-
     }
 
 }

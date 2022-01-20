@@ -4,6 +4,6 @@
     },
     "post-install-cmd": [
         "php artisan clear-compiled",
-        "chmod -R 776 public/"
+      "chmod -R 776 public/"
     ]
 }
