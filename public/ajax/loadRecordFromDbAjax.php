@@ -23,7 +23,7 @@ if (count($selectedData) > 0){
         <p><b>Name: </b>' . $record['name'] . ' <b>Email: </b> ' . $record['email'] . '
         <b>Phone Number: </b> ' . $record['phone_number'] . ' <b>Apartment Number</b>
         ' . $record['apartment_address'] . ' <b>Date: </b> ' . $record['date'] . '
-        <b>Time: </b> ' . $record['time'] . '</p>
+        <b>Time: </b> ' . $record['time'] . ':00h'. '</p>
         <div class="btn deleteButton" id="'. $deleteButtonId.'">delete</div>
         <div class="btn" id="'. $editButtonId.'">edit</div>
         <div class="editRecord" id="'. $editRecordId.'">
