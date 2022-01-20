@@ -40,7 +40,9 @@ ______________________________
 
 Import records:
 
-import csv file with records
+import csv file with records 
+
+test with recordsForUploading.csv 
 ______________________________
 
 change log details:
