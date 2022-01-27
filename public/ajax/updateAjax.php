@@ -11,3 +11,5 @@ if ($_POST['task'] === 'update'){
 if ($_POST['task'] === 'delete'){
     $table->deleteFromDb($_POST['id']);
 }
+$link = 'http://' . $_SERVER['HTTP_HOST'];
+header('location: ' . $link);

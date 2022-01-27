@@ -1,25 +1,27 @@
 <?php
 include __DIR__ . '/../../includes/autoload.php';
 include __DIR__ . '/../../includes/DatabaseConnection.php';
-$table = new \Common\DatabaseTable($pdo, 'user_reservations', 'id');
-$controller = new \CleaningApp\Controllers\AdminPagesController($table);
 
-$selectedData = $controller->getRecordsFromDb($_POST['column'], $_POST['value']);
-if (count($selectedData) > 0){
-    $definer = 1;
-    foreach ($selectedData as $record){
-        $deleteButtonId = 'deleteButton' . $definer;
-        $editButtonId = 'editButton' . $definer;
-        $editRecordId = 'editRecord' . $definer;
-        $recordId = $record['id'];
-        $inputNameId = 'name' . $definer;
-        $inputEmailId = 'email' . $definer;
-        $inputPhoneId = 'phone' . $definer;
-        $inputApartmentId = 'apartment' . $definer;
-        $inputDateId = 'date' . $definer;
-        $inputTimeId = 'time' . $definer;
-        $saveButtonId = 'saveRecord' . $definer;
-        echo '
+
+try {
+    $table = new \Common\DatabaseTable($pdo, 'user_reservations', 'id');
+    $controller = new \CleaningApp\Controllers\AdminPagesController($table);
+    $selectedData = $controller->getRecordsFromDb($_POST['column'], $_POST['value']);
+    if (count($selectedData) > 0){
+        $definer = 1;
+        foreach ($selectedData as $record){
+            $deleteButtonId = 'deleteButton' . $definer;
+            $editButtonId = 'editButton' . $definer;
+            $editRecordId = 'editRecord' . $definer;
+            $recordId = $record['id'];
+            $inputNameId = 'name' . $definer;
+            $inputEmailId = 'email' . $definer;
+            $inputPhoneId = 'phone' . $definer;
+            $inputApartmentId = 'apartment' . $definer;
+            $inputDateId = 'date' . $definer;
+            $inputTimeId = 'time' . $definer;
+            $saveButtonId = 'saveRecord' . $definer;
+            echo '
         <p><b>Name: </b>' . $record['name'] . ' <b>Email: </b> ' . $record['email'] . '
         <b>Phone Number: </b> ' . $record['phone_number'] . ' <b>Apartment Number</b>
         ' . $record['apartment_address'] . ' <b>Date: </b> ' . $record['date'] . '
@@ -81,9 +83,16 @@ if (count($selectedData) > 0){
             })
         </script>
         ';
-        $definer++;
+            $definer++;
+        }
     }
+    else{
+        echo 'no records';
+    }
+}catch (\throwable){
+    $link = 'http://' . $_SERVER['HTTP_HOST'];
+    header('location: ' . $link);
 }
-else{
-    echo 'no records';
-}
+
+
+

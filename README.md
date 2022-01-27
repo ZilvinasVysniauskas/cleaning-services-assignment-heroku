@@ -1,5 +1,39 @@
-Vendor commands:
-composer require bjeavons/zxcvbn-php
+Cleaning services booking application with administrator functionality. Application is build using MVC method.
 
-heroku link:
-https://pomodoro-learning-app.herokuapp.com/
+Heroku link: http://cleaning-services-assignment.herokuapp.com/
+
+Functionality on customer side:
+
+Adding record email proof added: accepts only valid email format. number proof added: accepts only valid numbers (Lithuanian format) date proof: allows to select only dates after current date. time proof: select only working hours (7-22)
+
+Admin side:
+
+Logging: http://cleaning-services-assignment.herokuapp.com/admin
+
+admin username: admin admin password: admin
+
+Functionality:
+
+home page:
+
+selecting records by date selecting records by email editing records deleting records
+
+records are sorted by time
+
+Download record:
+
+Download all records Download all records from date A to Date B: added proof (date A cannot be greater the date B) Download all records from time A to time B added proof (time A cannot be greater the time B) Download all records from time A to time B AND date A to Date B
+
+Import records:
+
+import csv file with records
+
+test with recordsForUploading.csv
+
+change log details:
+
+change password of admin:
+
+logout from admin:
+
+back to user side.
